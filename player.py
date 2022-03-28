@@ -11,6 +11,7 @@ class Player(Turtle):
     def __init__(self):
         super().__init__("turtle")
         self.penup()
+        self.level = 1
         self.color("green")
         self.goto(STARTING_POSITION)
         self.setheading(HEADING)
@@ -18,6 +19,7 @@ class Player(Turtle):
     def move(self):
         finished = self.check_if_level_complete()
         if finished:
+            self.level += 1
             self.goto(STARTING_POSITION)
         else:
             new_y = self.ycor() + MOVE_DISTANCE
